@@ -4,5 +4,6 @@ target 'Restaurant Mockup' do
   use_frameworks!
 
   # Pods for Restaurant Mockup
+  pod 'Cosmos'
 
 end

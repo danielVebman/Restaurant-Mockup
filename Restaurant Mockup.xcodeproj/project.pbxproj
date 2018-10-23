@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		060C271D217E2F7300E99541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060C271C217E2F7300E99541 /* AppDelegate.swift */; };
-		060C271F217E2F7300E99541 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060C271E217E2F7300E99541 /* ViewController.swift */; };
+		060C271F217E2F7300E99541 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060C271E217E2F7300E99541 /* MainViewController.swift */; };
 		060C2722217E2F7300E99541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060C2720217E2F7300E99541 /* Main.storyboard */; };
 		060C2724217E2F7400E99541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060C2723217E2F7400E99541 /* Assets.xcassets */; };
 		060C2727217E2F7400E99541 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060C2725217E2F7400E99541 /* LaunchScreen.storyboard */; };
+		06CAD157217E884B00A26272 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CAD156217E884B00A26272 /* Helpers.swift */; };
+		06CAD159217E90C900A26272 /* RestaurantsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CAD158217E90C900A26272 /* RestaurantsTableView.swift */; };
+		06CAD15F217EA5B800A26272 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CAD15E217EA5B800A26272 /* Restaurant.swift */; };
+		06CAD161217EACCA00A26272 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CAD160217EACCA00A26272 /* Toolbar.swift */; };
 		25E9E047A6C3328E1A0E3D99 /* Pods_Restaurant_Mockup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D0576183EEA56DAC1FFA60B /* Pods_Restaurant_Mockup.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,12 +23,16 @@
 		0066ADF79789AE0CD01197D4 /* Pods-Restaurant Mockup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant Mockup.release.xcconfig"; path = "Pods/Target Support Files/Pods-Restaurant Mockup/Pods-Restaurant Mockup.release.xcconfig"; sourceTree = "<group>"; };
 		060C2719217E2F7300E99541 /* Restaurant Mockup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Restaurant Mockup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		060C271C217E2F7300E99541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		060C271E217E2F7300E99541 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		060C271E217E2F7300E99541 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		060C2721217E2F7300E99541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		060C2723217E2F7400E99541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		060C2726217E2F7400E99541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		060C2728217E2F7400E99541 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		068BC4AB217E2FFD002E8CE2 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		068BC4AB217E2FFD002E8CE2 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		06CAD156217E884B00A26272 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		06CAD158217E90C900A26272 /* RestaurantsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableView.swift; sourceTree = "<group>"; };
+		06CAD15E217EA5B800A26272 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		06CAD160217EACCA00A26272 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		6D0576183EEA56DAC1FFA60B /* Pods_Restaurant_Mockup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restaurant_Mockup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A25607F7D4132FB5C6FF97 /* Pods-Restaurant Mockup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant Mockup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Restaurant Mockup/Pods-Restaurant Mockup.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,7 +71,11 @@
 			isa = PBXGroup;
 			children = (
 				060C271C217E2F7300E99541 /* AppDelegate.swift */,
-				060C271E217E2F7300E99541 /* ViewController.swift */,
+				060C271E217E2F7300E99541 /* MainViewController.swift */,
+				06CAD158217E90C900A26272 /* RestaurantsTableView.swift */,
+				06CAD160217EACCA00A26272 /* Toolbar.swift */,
+				06CAD15E217EA5B800A26272 /* Restaurant.swift */,
+				06CAD156217E884B00A26272 /* Helpers.swift */,
 				060C2720217E2F7300E99541 /* Main.storyboard */,
 				060C2723217E2F7400E99541 /* Assets.xcassets */,
 				060C2725217E2F7400E99541 /* LaunchScreen.storyboard */,
@@ -101,6 +113,7 @@
 				060C2715217E2F7300E99541 /* Sources */,
 				060C2716217E2F7300E99541 /* Frameworks */,
 				060C2717217E2F7300E99541 /* Resources */,
+				5C335F1F59867B086C63B299 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +189,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5C335F1F59867B086C63B299 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Restaurant Mockup/Pods-Restaurant Mockup-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Restaurant Mockup/Pods-Restaurant Mockup-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -183,7 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				060C271F217E2F7300E99541 /* ViewController.swift in Sources */,
+				06CAD15F217EA5B800A26272 /* Restaurant.swift in Sources */,
+				06CAD159217E90C900A26272 /* RestaurantsTableView.swift in Sources */,
+				06CAD157217E884B00A26272 /* Helpers.swift in Sources */,
+				06CAD161217EACCA00A26272 /* Toolbar.swift in Sources */,
+				060C271F217E2F7300E99541 /* MainViewController.swift in Sources */,
 				060C271D217E2F7300E99541 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
