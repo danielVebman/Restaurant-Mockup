@@ -15,4 +15,5 @@ struct Restaurant {
     var numberOfReviews: Int
     var detail: String
     var image: UIImage
+    var address: String
 }

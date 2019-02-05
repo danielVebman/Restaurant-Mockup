@@ -1,50 +1,55 @@
 //
-//  RestaurantsTableView.swift
+//  RestaurantsCollectionView.swift
 //  Restaurant Mockup
 //
-//  Created by Daniel Vebman on 10/22/18.
-//  Copyright © 2018 Daniel Vebman. All rights reserved.
+//  Created by Daniel Vebman on 2/4/19.
+//  Copyright © 2019 Daniel Vebman. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import Cosmos
 
-class RestaurantsTableView: UITableView, UITableViewDataSource {
-    var restaurants: [Restaurant] = []
+class RestaurantsCollectionView: UICollectionView {
+    var restaurants: [Restaurant]
     
-    override init(frame: CGRect, style: UITableView.Style) {
-        super.init(frame: frame, style: style)
+    init(frame: CGRect, restaurants: [Restaurant]) {
+        self.restaurants = restaurants
         
-        restaurants.append(Restaurant(name: "Island Burger", rating: 4.8, numberOfReviews: 1015, detail: "Modern yet classic American burger bar. Open until 1:00 on Saturdays.", image: #imageLiteral(resourceName: "hamburger"), address: "422 Amsterdam Ave"))
-        restaurants.append(Restaurant(name: "Dos Caminos", rating: 4.0, numberOfReviews: 846, detail: "Hip and authentic spot under the High Line for Latin American tapas with a patio open until 12:00 AM.", image: #imageLiteral(resourceName: "tapas"), address: "675 Hudson St"))
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        layout.itemSize = CGSize(width: frame.width - 50, height: frame.height - 50)
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 25
+        super.init(frame: frame, collectionViewLayout: layout)
         
-        backgroundColor = .clear
-        clipsToBounds = false
-        separatorStyle = .none
-        rowHeight = 300
+        register(RestaurantCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
-        register(RestaurantsTableViewCell.self, forCellReuseIdentifier: "cell")
         dataSource = self
+        
+        clipsToBounds = false
+        backgroundColor = .clear
+        showsHorizontalScrollIndicator = false
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+}
+
+extension RestaurantsCollectionView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return restaurants.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RestaurantsTableViewCell
-        let restaurant = restaurants[indexPath.row]
-        cell.restaurant = restaurant
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RestaurantCollectionViewCell
+        cell.restaurant = restaurants[indexPath.item]
         return cell
     }
 }
 
-class RestaurantsTableViewCell: UITableViewCell {
+class RestaurantCollectionViewCell: UICollectionViewCell {
     private var backgroundImageView = UIImageView()
     private var titleLabel = UILabel()
     private var ratingView = CosmosView()
@@ -68,16 +73,27 @@ class RestaurantsTableViewCell: UITableViewCell {
         }
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         backgroundColor = .clear
-        selectionStyle = .none
-        contentView.backgroundColor = .white
-        contentView.clipsToBounds = true
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
         
+        contentView.backgroundColor = .white
+        contentView.layer.cornerRadius = 10
+        
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1)
+        layer.shadowRadius = 20
+        layer.shadowOpacity = 0.3
+        layer.masksToBounds = false
+        
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOffset = CGSize(width: 0, height: 1)
+//        layer.shadowRadius = 10
+//        layer.shadowOpacity = 0.5
+//        layer.masksToBounds = false
+//        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+    
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.layer.cornerRadius = contentView.layer.cornerRadius
         backgroundImageView.clipsToBounds = true
@@ -131,16 +147,6 @@ class RestaurantsTableViewCell: UITableViewCell {
         contentView.addSubview(menuButton)
     }
     
-    override var frame: CGRect {
-        didSet {
-            layer.shadowColor = UIColor.lightGray.cgColor
-            layer.shadowOffset = CGSize(width: 0, height: 1)
-            layer.shadowRadius = 20
-            layer.shadowOpacity = 0.3
-            layer.masksToBounds = false
-        }
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -182,3 +188,4 @@ class RestaurantsTableViewCell: UITableViewCell {
         backgroundImageView.layer.insertSublayer(gradient, at: 0)
     }
 }
+

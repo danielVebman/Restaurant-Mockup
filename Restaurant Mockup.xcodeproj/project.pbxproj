@@ -12,6 +12,9 @@
 		060C2722217E2F7300E99541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060C2720217E2F7300E99541 /* Main.storyboard */; };
 		060C2724217E2F7400E99541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060C2723217E2F7400E99541 /* Assets.xcassets */; };
 		060C2727217E2F7400E99541 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060C2725217E2F7400E99541 /* LaunchScreen.storyboard */; };
+		065CAE48217FD12400481586 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 065CAE47217FD12400481586 /* FontAwesome.ttf */; };
+		069C36E72209307F00590622 /* RestaurantsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C36E62209307F00590622 /* RestaurantsCollectionView.swift */; };
+		069C36E92209343900590622 /* SquishButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C36E82209343900590622 /* SquishButton.swift */; };
 		06CAD157217E884B00A26272 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CAD156217E884B00A26272 /* Helpers.swift */; };
 		06CAD159217E90C900A26272 /* RestaurantsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CAD158217E90C900A26272 /* RestaurantsTableView.swift */; };
 		06CAD15F217EA5B800A26272 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CAD15E217EA5B800A26272 /* Restaurant.swift */; };
@@ -28,7 +31,10 @@
 		060C2723217E2F7400E99541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		060C2726217E2F7400E99541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		060C2728217E2F7400E99541 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		065CAE47217FD12400481586 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		068BC4AB217E2FFD002E8CE2 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		069C36E62209307F00590622 /* RestaurantsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsCollectionView.swift; sourceTree = "<group>"; };
+		069C36E82209343900590622 /* SquishButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishButton.swift; sourceTree = "<group>"; };
 		06CAD156217E884B00A26272 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		06CAD158217E90C900A26272 /* RestaurantsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableView.swift; sourceTree = "<group>"; };
 		06CAD15E217EA5B800A26272 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -73,13 +79,16 @@
 				060C271C217E2F7300E99541 /* AppDelegate.swift */,
 				060C271E217E2F7300E99541 /* MainViewController.swift */,
 				06CAD158217E90C900A26272 /* RestaurantsTableView.swift */,
+				069C36E62209307F00590622 /* RestaurantsCollectionView.swift */,
 				06CAD160217EACCA00A26272 /* Toolbar.swift */,
 				06CAD15E217EA5B800A26272 /* Restaurant.swift */,
 				06CAD156217E884B00A26272 /* Helpers.swift */,
+				069C36E82209343900590622 /* SquishButton.swift */,
 				060C2720217E2F7300E99541 /* Main.storyboard */,
 				060C2723217E2F7400E99541 /* Assets.xcassets */,
 				060C2725217E2F7400E99541 /* LaunchScreen.storyboard */,
 				060C2728217E2F7400E99541 /* Info.plist */,
+				065CAE47217FD12400481586 /* FontAwesome.ttf */,
 				068BC4AB217E2FFD002E8CE2 /* Podfile */,
 			);
 			path = "Restaurant Mockup";
@@ -165,6 +174,7 @@
 				060C2727217E2F7400E99541 /* LaunchScreen.storyboard in Resources */,
 				060C2724217E2F7400E99541 /* Assets.xcassets in Resources */,
 				060C2722217E2F7300E99541 /* Main.storyboard in Resources */,
+				065CAE48217FD12400481586 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,10 +225,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				06CAD15F217EA5B800A26272 /* Restaurant.swift in Sources */,
+				069C36E72209307F00590622 /* RestaurantsCollectionView.swift in Sources */,
 				06CAD159217E90C900A26272 /* RestaurantsTableView.swift in Sources */,
 				06CAD157217E884B00A26272 /* Helpers.swift in Sources */,
 				06CAD161217EACCA00A26272 /* Toolbar.swift in Sources */,
 				060C271F217E2F7300E99541 /* MainViewController.swift in Sources */,
+				069C36E92209343900590622 /* SquishButton.swift in Sources */,
 				060C271D217E2F7300E99541 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
