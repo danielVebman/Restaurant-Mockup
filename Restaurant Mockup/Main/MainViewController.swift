@@ -24,6 +24,8 @@ class MainViewController: UIViewController {
 //    var reservationsButton: SquishButton!
     var timeBlurView: UIVisualEffectView!
     
+    var restaurants: [Restaurant] = []
+    
     override func viewDidLoad() {
         backgroundCircle = UIView(frame: CGRect(x: -50, y: -70, width: view.frame.width * 4 / 5, height: view.frame.width * 4 / 5))
         backgroundCircle.layer.cornerRadius = 0.5 * backgroundCircle.frame.width
@@ -44,6 +46,19 @@ class MainViewController: UIViewController {
         titleLabel.sizeToFit()
         titleLabel.frame.origin = CGPoint(x: 30, y: 60)
         view.addSubview(titleLabel)
+
+        restaurants = [
+            Restaurant(name: "Island Burger", rating: 4.8, numberOfReviews: 1015, detail: "Modern yet classic American burger bar. Open until 1:00 on Saturdays.", image: #imageLiteral(resourceName: "hamburger"), address: "422 Amsterdam Ave"),
+            Restaurant(name: "Dos Caminos", rating: 4.0, numberOfReviews: 846, detail: "Hip and authentic spot under the High Line for Latin American tapas with a patio open until 12:00 AM.", image: #imageLiteral(resourceName: "tapas"), address: "675 Hudson St"),
+            Restaurant(name: "Boulud Sud", rating: 4.5, numberOfReviews: 348, detail: "Refined Mediterranean dining via chef Daniel Boulud with convenience to Lincoln Center.", image: #imageLiteral(resourceName: "harira"), address: "20 W 64th St")
+        ]
+        
+        tableView = RestaurantsTableView(frame: CGRect(x: 32, y: 0, width: view.frame.width - 64, height: view.frame.height - 90), restaurants: restaurants)
+        tableView.contentInset = UIEdgeInsets(top: (titleLabel.frame.maxY + 50), left: 0, bottom: 20, right: 0)
+        tableView.delegate = self
+        tableView.showsVerticalScrollIndicator = false
+        tableView.delegate = self
+        view.addSubview(tableView)
         
         searchButton = UIButton(type: .system)
         searchButton.setImage(#imageLiteral(resourceName: "search"), for: .normal)
@@ -51,12 +66,6 @@ class MainViewController: UIViewController {
         searchButton.frame.size = CGSize(width: 25, height: 25)
         searchButton.center = CGPoint(x: view.frame.width - 40, y: titleLabel.frame.midY)
         view.addSubview(searchButton)
-
-        tableView = RestaurantsTableView(frame: CGRect(x: 32, y: 0, width: view.frame.width - 64, height: view.frame.height - 90))
-        tableView.contentInset = UIEdgeInsets(top: (titleLabel.frame.maxY + 50), left: 0, bottom: 20, right: 0)
-        tableView.delegate = self
-        tableView.showsVerticalScrollIndicator = false
-        view.addSubview(tableView)
         
         let toolbar = RestaurantToolbar(frame: CGRect(x: 0, y: view.frame.height - 90, width: view.frame.width, height: 90))
         view.addSubview(toolbar)
@@ -65,10 +74,6 @@ class MainViewController: UIViewController {
         view.addSubview(timeBlurView)
         
         /*
-        let restaurants = [
-            Restaurant(name: "Island Burger", rating: 4.8, numberOfReviews: 1015, detail: "Modern yet classic American burger bar. Open until 1:00 on Saturdays.", image: #imageLiteral(resourceName: "hamburger"), address: "422 Amsterdam Ave"),
-            Restaurant(name: "Dos Caminos", rating: 4.0, numberOfReviews: 846, detail: "Hip and authentic spot under the High Line for Latin American tapas with a patio open until 12:00 AM.", image: #imageLiteral(resourceName: "tapas"), address: "675 Hudson St")
-        ]
         let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2)
         collectionView = RestaurantsCollectionView(frame: frame, restaurants: restaurants)
         collectionView.center.y = (toolbar.frame.origin.y + titleLabel.frame.maxY) * 2 / 5
@@ -87,6 +92,11 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let segueInfo = (tableView.cellForRow(at: indexPath) as! RestaurantsTableViewCell).segueInfo
+        present(DetailViewController(segueInfo: segueInfo), animated: false, completion: nil)
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y + scrollView.contentInset.top > 160 {
             if timeBlurView.effect == nil && !isShowingBlur {

@@ -433,7 +433,7 @@
 			};
 			name = Release;
 		};
-		52FE2810734605B795C19D0B52AC9BA7 /* Release */ = {
+		581095A38E869441BAC34EB63C717C0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 998F4BB3C0327EA074102F96917E95DE /* Cosmos.xcconfig */;
 			buildSettings = {
@@ -457,14 +457,13 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		747C2D43E03A768BA80099C6B1FEF67D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -502,7 +501,7 @@
 			};
 			name = Debug;
 		};
-		B48C277E3D003442406A61EC10F55C73 /* Debug */ = {
+		BFA8CEF0BDDEA3A9232DFB49BE525B6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 998F4BB3C0327EA074102F96917E95DE /* Cosmos.xcconfig */;
 			buildSettings = {
@@ -526,13 +525,14 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		CD8324D57CD462761E218EEA4EA91EC7 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -616,8 +616,8 @@
 		38CA41A3E689F135BAEECE91B63D9EA0 /* Build configuration list for PBXNativeTarget "Cosmos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B48C277E3D003442406A61EC10F55C73 /* Debug */,
-				52FE2810734605B795C19D0B52AC9BA7 /* Release */,
+				581095A38E869441BAC34EB63C717C0A /* Debug */,
+				BFA8CEF0BDDEA3A9232DFB49BE525B6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -11,13 +11,12 @@ import UIKit
 import Cosmos
 
 class RestaurantsTableView: UITableView, UITableViewDataSource {
-    var restaurants: [Restaurant] = []
+    var restaurants: [Restaurant]
     
-    override init(frame: CGRect, style: UITableView.Style) {
-        super.init(frame: frame, style: style)
+    init(frame: CGRect, restaurants: [Restaurant]) {
+        self.restaurants = restaurants
         
-        restaurants.append(Restaurant(name: "Island Burger", rating: 4.8, numberOfReviews: 1015, detail: "Modern yet classic American burger bar. Open until 1:00 on Saturdays.", image: #imageLiteral(resourceName: "hamburger"), address: "422 Amsterdam Ave"))
-        restaurants.append(Restaurant(name: "Dos Caminos", rating: 4.0, numberOfReviews: 846, detail: "Hip and authentic spot under the High Line for Latin American tapas with a patio open until 12:00 AM.", image: #imageLiteral(resourceName: "tapas"), address: "675 Hudson St"))
+        super.init(frame: frame, style: .plain)
         
         backgroundColor = .clear
         clipsToBounds = false
@@ -66,6 +65,20 @@ class RestaurantsTableViewCell: UITableViewCell {
             backgroundImageView.image = restaurant.image
             layoutSubviews()
         }
+    }
+    
+    var segueInfo: SegueInfo {
+        let cellFrame = superview!.convert(frame, to: UIScreen.main.coordinateSpace)
+        return SegueInfo(
+            restaurant: restaurant!,
+            cellFrame: cellFrame,
+            backgroundImageViewFrame: backgroundImageView.frame,
+            titleLabelFrame: titleLabel.frame,
+            ratingViewFrame: ratingView.frame,
+            detailLabelFrame: detailLabel.frame,
+            directionsButtonFrame: directionsButton.frame,
+            menuButtonFrame: menuButton.frame
+        )
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
