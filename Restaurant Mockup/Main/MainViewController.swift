@@ -95,6 +95,7 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let segueInfo = (tableView.cellForRow(at: indexPath) as! RestaurantsTableViewCell).segueInfo
         present(DetailViewController(segueInfo: segueInfo), animated: false, completion: nil)
+        CFRunLoopWakeUp(CFRunLoopGetCurrent())
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
